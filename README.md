@@ -10,7 +10,7 @@ Timer that can count in frames, miliseconds, seconds and minutes. It's something
 
 `times_out(<id>)` - fires once when the time runs out
 
-`timer_finished(<id>)`
+`timer_finished(<id>)` - if a timer is running or not
 
 `timer_pause(<id>)`
 
