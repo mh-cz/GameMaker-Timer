@@ -45,6 +45,6 @@ if times_up(2) {
 ```
 ```
 // STEP EVENT //
-set_timer(2, 1, TMR.s, true);
-if times_up(2) show_debug_message("now"); // being called every second
+set_timer(3, 1, TMR.s, true);
+if times_up(3) show_debug_message("now"); // being called every second
 ```
