@@ -36,7 +36,7 @@ set_timer(1, 40);
 
 // STEP EVENT //
 if times_up(1) {
-  instance_create_depth(...); // called after 40 frames
+  show_debug_message("now"); // called after 40 frames
 }
 ```
 ```
@@ -45,11 +45,13 @@ set_timer(2, 10, TMR.s);
 
 // STEP EVENT //
 if times_up(2) {
-  instance_create_depth(...); // called after 10 seconds
+  show_debug_message("now"); // called after 10 seconds
 }
 ```
 ```
 // STEP EVENT //
 set_timer(3, 1, TMR.s, true);
-if times_up(3) show_debug_message("now"); // being called every second
+if times_up(3) {
+  show_debug_message("now"); // being called every second
+}
 ```
