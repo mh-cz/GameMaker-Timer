@@ -1,4 +1,4 @@
-# GameMaker-Timer
+# GameMaker Timer
 Timer that can count in frames, miliseconds, seconds and minutes. It's something to expand the built in alarm system
 
 #### FUNCTIONS
