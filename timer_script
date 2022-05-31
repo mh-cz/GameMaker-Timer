@@ -1,0 +1,78 @@
+global.TIMER_DATA = ds_map_create();
+enum TMR { f=0, ms=1, s=2, m=3 };
+
+function set_timer(ID, num, type = TMR.s, wait = false) {
+	if wait and !timer_finished(ID) return false;
+	
+	switch(type) {
+		case TMR.f:
+			global.TIMER_DATA[? ID] = [num, true, -1];
+			break;
+		case TMR.ms:
+			global.TIMER_DATA[? ID] = [num + get_timer() * 0.001, false, -1];
+			break;
+		case TMR.s:
+			global.TIMER_DATA[? ID] = [num * 1000 + get_timer() * 0.001, false, -1];
+			break;
+		case TMR.m:
+			global.TIMER_DATA[? ID] = [num * 1000 * 60 + get_timer() * 0.001, false, -1];
+			break;
+	}
+	return true;
+} // [delay, is_it_frames, paused_since]
+
+function times_up(ID) {
+	var t = global.TIMER_DATA[? ID];
+	if t == undefined return false;
+	
+	if t[2] == -1 {
+		if t[1] {
+			if --global.TIMER_DATA[? ID][0] <= 0 {
+				ds_map_delete(global.TIMER_DATA, ID);
+				return true;
+			}
+		}
+		else {
+			if t[0] - get_timer() * 0.001 <= 0 {
+				ds_map_delete(global.TIMER_DATA, ID);
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+function timer_finished(ID) {
+	return global.TIMER_DATA[? ID] == undefined;
+}
+
+function timer_pause(ID) {
+	var t = global.TIMER_DATA[? ID];
+	if t == undefined return false;
+	if t[2] == -1 t[2] = get_timer() * 0.001;
+}
+
+function timer_resume(ID) {
+	var t = global.TIMER_DATA[? ID];
+	if t == undefined return false;
+	if t[2] != -1 and !t[1] t[0] += get_timer() * 0.001 - t[2];
+	t[2] = -1;
+}
+
+function timer_pause_all() {
+	var a = ds_map_keys_to_array(global.TIMER_DATA);
+	for(var i = 0, l = array_length(a); i < l; i++) {
+		var t = global.TIMER_DATA[? a[i]];
+		if t[2] == -1 t[2] = get_timer() * 0.001;
+	}
+}
+
+function timer_resume_all() {
+	var a = ds_map_keys_to_array(global.TIMER_DATA);
+	for(var i = 0, l = array_length(a); i < l; i++) {
+		var t = global.TIMER_DATA[? a[i]];
+		if t[2] != -1 and !t[1] t[0] += get_timer() * 0.001 - t[2];
+		t[2] = -1;
+	}
+}
