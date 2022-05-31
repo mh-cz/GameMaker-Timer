@@ -31,25 +31,25 @@ The `times_up` func should be called in a step/draw event
 ### EXAMPLES
 
 ```
-// CREATE EVENT //
+// ------ CREATE EVENT ------ //
 set_timer(1, 40);
 
-// STEP EVENT //
+// ------ STEP EVENT ------ //
 if times_up(1) {
   show_debug_message("now"); // called after 40 frames
 }
 ```
 ```
-// CREATE EVENT //
+// ------ CREATE EVENT ------ //
 set_timer(2, 10, TMR.s);
 
-// STEP EVENT //
+// ------ STEP EVENT ------ //
 if times_up(2) {
   show_debug_message("now"); // called after 10 seconds
 }
 ```
 ```
-// STEP EVENT //
+// ------ STEP EVENT ------ //
 set_timer(3, 1, TMR.s, true);
 if times_up(3) {
   show_debug_message("now"); // being called every second
