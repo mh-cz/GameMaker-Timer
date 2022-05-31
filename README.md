@@ -5,7 +5,6 @@ A simple timer that can count in frames, miliseconds, seconds and minutes. It's 
 room_speed (frames) = 1 s
 1 s = 1000 ms
 1 m = 60 s
-
 ```
 #### FUNCTIONS
 `set_timer(<id>, <num>, <type>, <wait>)`
