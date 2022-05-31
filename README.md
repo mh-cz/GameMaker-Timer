@@ -1,7 +1,7 @@
 # GameMaker-Timer
 Timer that can count in frames, miliseconds, seconds and minutes. It's something to expand the built in alarm system
 
-#### STUFF
+#### FUNCTIONS
 `set_timer(<id>, <num>, <type>, <wait>)`
 - id - real/string
 - num - number of frames/delay
@@ -23,7 +23,7 @@ Timer that can count in frames, miliseconds, seconds and minutes. It's something
 - TMR.s - seconds
 - TMR.m - minutes
 
-## EXAMPLES
+### EXAMPLES
 
 ```
 // CREATE EVENT //
