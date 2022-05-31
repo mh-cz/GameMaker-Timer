@@ -8,7 +8,7 @@ Timer that can count in frames, miliseconds, seconds and minutes. It's something
 - type - frames/milliseconds/seconds/minutes (optional, default: TMR.f)
 - wait - wait until this timer has finished (optional, default: false)
 
-`times_out(<id>)` - fires once when the time runs out
+`times_up(<id>)` - fires once when the time runs out
 
 `timer_finished(<id>)` - if a timer is running or not
 
@@ -19,7 +19,9 @@ Timer that can count in frames, miliseconds, seconds and minutes. It's something
 `timer_pause_all()`
 
 `timer_resume_all()`
-
+##
+The `times_up` func should be called in a step/draw event 
+##
 #### Possible types:
 - TMR.f - frames
 - TMR.ms - milliseconds
